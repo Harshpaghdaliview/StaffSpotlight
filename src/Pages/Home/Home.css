@@ -1,0 +1,122 @@
+ 
+
+.carousel-text{
+    font-size: 5rem;
+    font-weight: 700;
+}
+ 
+
+.sub-main{ 
+    border: 3px solid;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.img-1{
+    background-image: url(../../Images/carousel-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  
+}
+.img-2{
+    background-image: url(../../Images/carousel-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(21, 36, 64, .7);
+    z-index: 1;
+}
+
+.mid-text-carousel{
+    margin-top: 11rem;
+}
+
+.service-item{
+    padding:2rem;
+    background-color: whitesmoke;
+}
+
+.service-cards{
+    width: 5rem;
+    height: 5rem;
+}
+.primary-icon{
+    width: 4rem;
+    height: 4rem;
+}
+
+.container-fluid-1{
+    background-color: whitesmoke;
+}
+.image-temp{
+    height: 400px;
+    object-fit: cover;
+    width: -webkit-fill-available;
+}
+ 
+.testimonials-image{         
+    height: 500PX;
+    WIDTH: 760PX;
+    OBJECT-FIT: cover;
+}
+
+.carousel-caption-1{
+    color: black;
+}
+ 
+.slide-temp{
+border: 1px solid;
+height: 26rem;}
+
+
+.image-tag{
+    width: 500px;
+}
+
+.carousel-button-a{     
+margin: 17rem;
+color: rgb(255, 255, 255);
+/* border: 1px solid black; */
+height: 3rem;
+width: 3rem;
+background-color: #0d6efd;
+border-radius: 52px;
+opacity: 1;
+}
+ 
+
+.carousel-control-prev:hover {
+    color: rgb(255, 255, 255);
+}
+.carousel-control-next:hover {
+    color: rgb(255, 255, 255);
+}
+.carousel-text-1{
+font-size: xx-large;
+}
+.text-heading{
+    font-weight: 700;
+}
+
+.text-deco{
+    color: white;
+    display: flex;
+}
+.text-decor{
+    text-decoration: none;
+    color: white;
+}
+
+.temp-round{
+    border-radius: 50%;
+}
