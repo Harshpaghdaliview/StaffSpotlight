@@ -5,9 +5,9 @@ function Navbar() {
   return (
     <div> 
       <nav className="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
-        <a href=" " className="navbar-brand p-0">
+        <NavLink to="/" className="navbar-brand p-0">
           <h1 className="nav-heading"> Staff Spotlight</h1>
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,9 +24,7 @@ function Navbar() {
             <NavLink to="/Products" className="nav-item nav-link">
              Products
             </NavLink>
-            <NavLink to="#" className="nav-item nav-link">
-              Contact
-            </NavLink>
+             
           </div>
         </div>
       </nav>
