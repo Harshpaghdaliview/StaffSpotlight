@@ -1,0 +1,69 @@
+/* CSS for Signup Page */
+.signup-container {
+    width: 50rem;
+    color: rgb(0, 0, 0);
+    margin: 0 auto; 
+    background-color: #f2f2f200; 
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0, 0, 0);
+  }
+  
+  .signup-container h1 {
+    text-align: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+/*   
+  .signup-form label,
+  .signup-form input,
+  .signup-form button {
+    margin-bottom: 20px;
+  } */
+  
+  .signup-form label {
+    font-weight: bold;
+  }
+  
+  .signup-form input {
+    padding: 3px;
+    border-radius: 5px;
+    width: 23rem;
+    border: 1px solid #000000;
+  }
+  
+  .signup-form button {
+    padding: 6px;
+    border: none;
+    background-color: #285fa7;
+    color: #fff;
+    cursor: pointer;
+    width: 8rem;
+    border-radius: 8px;
+  }
+  
+   
+  .signup-form p {
+    color: #ff0000; 
+  }
+  .Smain-div{
+    background-position: 0px -63px;
+    background-image: url('../../Images/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+  fieldset{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }

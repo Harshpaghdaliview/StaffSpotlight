@@ -1,17 +1,37 @@
 .button-design {
   border-radius: 6px;
-  background-color: #0d6dfdaa;
-  text-shadow: 0 0 black;
-  color: white;
+  background-color: #0d6efd; 
+  color: rgb(255, 255, 255);
   width: 150px;
+  border: none;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.button-design:hover {
+  background-color: rgb(255, 255, 255);
+  color: #0d6efd;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+   
 }
 
-.button-design1 {
+.button-design1:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  color: rgba(255, 0, 0, 0.74); 
+  font-weight: bold;
+}
+
+.button-design1 {   
+  border: none;
   border-radius: 6px;
-  background-color: rgba(255, 0, 0, 0.74);
-  text-shadow: 0 0 black;
-  color: white;
-  width: 150px;
+  background-color: rgba(255, 0, 0, 0.74); 
+  color: rgb(255, 255, 255);
+  width: 150px; 
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .dropdown-item {
@@ -31,8 +51,6 @@
   --var-card-dark: hsl(216, 50%, 16%);
   --var-line-dark: hsl(215, 32%, 27%);
   --var-lightest: white;
-
-  
 }
 
 img {
@@ -41,23 +59,24 @@ img {
   display: block;
 }
 
-.main-content{
-
-   color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-   
+.main-content {
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .card-container {
   width: 100%;
   max-width: 300px;
-  margin: 15px;;
-  background-color: var(--var-card-dark);
+  margin: 15px;
   border-radius: 15px;
   margin-bottom: 1rem;
   padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+} 
+.card-container:hover{ 
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0, 21, 255, 0.39);
 }
 
 @media (min-width: 600px) {
@@ -66,39 +85,39 @@ img {
   }
 }
 
-.dropbutton{
+.dropbutton {
   background-color: #0dcaf0;
   color: black;
 }
 
-.dropbutton:hover{
+.dropbutton:hover {
   background-color: #0dcaf0;
-  color: black;   
+  color: black;
 }
 
-.prod-title{
-   color: white;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   height: 100px;
-   width: fit-content; 
+.prod-title {
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  width: fit-content;
 }
 
 .product-name {
   position: relative;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   display: inline-block;
 }
 
 .product-name .tooltiptext {
   visibility: hidden;
- 
+
   background-color: #000000d9;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  position: absolute; 
+  position: absolute;
   width: 200px;
   bottom: 100%;
   left: 32%;
@@ -126,31 +145,77 @@ img {
   white-space: unset; 
 } */
 
-
-.im-image{
-   width: 16rem;
-   height: 15.5rem;    
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+.im-image {
+  width: 16rem;
+  height: 15.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.flex-row{
-   color: rgb(255, 255, 255); 
-   display:flex;  
-    justify-content: center;
+.flex-row {
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
 }
 
-.button-class{
-   position: sticky;
-   top: 50px;
-   height: fit-content;
-   width: fit-content;
-   margin: 0px 0px 0px 20px;
+.button-class {
+  position: sticky;
+  top: 50px;
+  height: fit-content;
+  width: fit-content;
+  margin: 0px 0px 0px 20px;
 }
 
-.button-class button{
-   width: fit-content;
-   margin: 1rem;
+.button-class button {
+  width: fit-content;
+  margin: 1rem;
 }
- 
+
+
+@media only screen and (max-width: 769px) {
+  .filter{
+    margin-right: 30px;
+  }
+  .card-section{
+    margin-left: 55px;
+  }
+}
+@media only screen and (max-width: 1025px) {
+   
+  .container {
+    max-width: max-content;
+  }
+  
+}
+
+@media only screen and (max-width: 321px) {
+
+  body{
+    width: fit-content;
+  }
+  
+  .card-section{
+    margin-left: 15px;
+  }
+}
+@media only screen and (max-width: 376px) {
+
+  .filter{
+    margin-right: 20px;
+  }
+  
+  .card-section{
+    margin-left: 30px;
+  }
+}
+@media only screen and (max-width: 426px) {
+
+  body{
+    width: fit-content;
+  }
+  
+  .card-section{
+    margin-left: 60px;
+  }
+}

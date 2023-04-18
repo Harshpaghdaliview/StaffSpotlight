@@ -1,0 +1,67 @@
+{
+  "user": [
+    {
+      "name": "harsh.paghdal@iviewlabs.net",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": "harsh.paghdal@iviewlabs.net",
+      "confirmPassword": "harsh.paghdal@iviewlabs.net",
+      "id": 1
+    },
+    {
+      "name": "Harsh",
+      "email": "harshonepatel@gmail.com",
+      "password": "harshonepatel@gmail.com",
+      "confirmPassword": "harshonepatel@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "Harsh",
+      "email": "harshoonepatel@gmail.com",
+      "password": "harsh.paghdal@iviewlabs.net",
+      "confirmPassword": "harsh.paghdal@iviewlabs.net",
+      "id": 3
+    },
+    {
+      "name": "harsh.paghdal@iviewlabs.net",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": "harsh.paghdal@iviewlabs.net",
+      "confirmPassword": "harsh.paghdal@iviewlabs.net",
+      "id": 4
+    },
+    {
+      "name": "harsh.paghdal@iviewlabs.net",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": " harsh.paghdal@iviewlabs.net",
+      "confirmPassword": " harsh.paghdal@iviewlabs.net",
+      "id": 5
+    },
+    {
+      "name": "harsh.paghdal@iviewlabs.net",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": " harsh.paghdal@iviewlabs.net",
+      "confirmPassword": " harsh.paghdal@iviewlabs.net",
+      "id": 6
+    },
+    {
+      "name": "harsh.paghdal@iviewlabs.net",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": " harsh.paghdal@iviewlabs.net",
+      "confirmPassword": " harsh.paghdal@iviewlabs.net",
+      "id": 7
+    },
+    {
+      "name": "sas",
+      "email": "harsh.paghdal@iviewlabs.net",
+      "password": " harsh.paghdal@iviewlabs.net",
+      "confirmPassword": " harsh.paghdal@iviewlabs.net",
+      "id": 8
+    },
+    {
+      "name": "a",
+      "email": "a@test.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "id": 9
+    }
+  ]
+}

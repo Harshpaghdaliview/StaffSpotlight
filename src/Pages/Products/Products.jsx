@@ -3,10 +3,9 @@ import "./Products.css";
 import { ClipLoader, FadeLoader } from "react-spinners";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios, { Axios } from "axios";
-import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
 import ScrollToTop from "react-scroll-to-top";
-import { Tooltip as ReactTooltip } from "react-tooltip";
+import { toast } from "react-toastify";
 function Employee() {
   const [data, setData] = useState([]);
   const [currentproduct, setcurrentproduct] = useState();
@@ -21,14 +20,15 @@ function Employee() {
   const [productRatingCount, setproductRatingCount] = useState();
   const [image, setimage] = useState();
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(true);
   const [id, setid] = useState();
-  const [slicedname, setslicedname] = useState();
   const [scrollbar, setScrollbar] = useState(350);
-  const [productspin, setProductspin] = useState(7);
+  const [productspin, setProductspin] = useState(8);
   const history = useNavigate();
 
   const destroy = async (id) => {
     await axios.delete(`http://localhost:3005/data/${id}`);
+    alert("product deleted successfully")
     apicall();
   };
 
@@ -52,24 +52,9 @@ function Employee() {
       category: category,
       image: image,
       rating: { rate: rating, count: productRatingCount },
-      // rating: { rate: productRating, count: productRatingCount },
     });
+    apicall();
   };
-
-  // const update = (id) => {
-  //   fetch(`https://fakestoreapi.com/products/${id}`, {
-  //     method: "PUT",
-  //     body: JSON.stringify({
-  //       title: title,
-  //       price: price,
-  //       description: description,
-  //       Rating: rating,
-  //       category: category,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((json) => console.log(json));
-  // };
 
   const sortby = (sb) => {
     setSortbyn(sb);
@@ -78,13 +63,7 @@ function Employee() {
       .then((response) => setData(response))
       .then((json) => console.log(json));
   };
-  const sort2 = (limit) => {
-    setDroplimit(limit);
-    fetch(`https://fakestoreapi.com/products?limit=${limit}`)
-      .then((res) => res.json())
-      .then((response) => setData(response))
-      .then((json) => console.log(json));
-  };
+   
   const Sort = (Cat) => {
     setDropcat(Cat);
     fetch(`https://fakestoreapi.com/products/category/${Cat}`)
@@ -96,7 +75,7 @@ function Employee() {
   const apicall = async () => {
     const result = await axios.get("http://localhost:3005/data");
     setData(result.data);
-    setLoading(true);
+    setLoading2(false);
   };
   useEffect(() => {
     apicall();
@@ -114,7 +93,7 @@ function Employee() {
         }, 1000);
 
         setScrollbar(
-          document.documentElement.getBoundingClientRect().height - 500
+          document.documentElement.getBoundingClientRect().height - 400
         );
       }
       console.log(
@@ -139,45 +118,58 @@ function Employee() {
   };
 
   const overrideFade = {
-  //   position: "relative",
-  // top: "90%",
-  // left: "0%",
-  // right:"80%",
-  // 
-  // margin: "auto",
     position: "fixed",
-    top: "98%",
+    top: "90%",
     left: "0",
     right: "0",
     bottom: "0",
     margin: "auto",
-     transform: "translate(-50%, -50%)",
+    // transform: "translate(-50%, -50%)",
   };
 
   const addprod = () => {
-    axios.post("http://localhost:3005/data", {
-      id: id,
-      title: title,
-      price: price,
-      Category: category,
-      Rating: rating,
-      imagelink: image,
-      Description: description,
-    });
-    history("/Products");
+    const form = document.getElementById("myForm");
+    if (form.checkValidity()) {
+      axios.post("http://localhost:3005/data", {
+        id: id,
+        title: title,
+        price: price,
+        Category: category,
+        Rating: rating,
+        imagelink: image,
+        Description: description,
+      });
+      toast.success("Product added successfully", {
+        style: { fontSize: "14px" },
+      });
+    } else {
+      toast.error("Please fill in all required fields correctly.", {
+        style: { fontSize: "14px" },
+      });
+    }
+  };
+
+  const read = (product) => {
+    setid(product?.id);
+    setTitle(product?.title);
+    setprice(product?.price);
+    setcategory(product?.category);
+    setdescription(product?.description);
+    setimage(product?.image);
+    setRating(product?.rating?.rate);
   };
 
   return (
     <>
       <ScrollToTop />
-      {/* <ClipLoader
-        loading={loading}
+      <ClipLoader
+        loading={loading2}
         cssOverride={override}
         size={50}
         aria-label="Loading Spinner"
         data-testid="loader"
-      />{" "} */}
-      <div className="container mt-4 d-flex align-items-center justify-content-end py-3">
+      />{" "}
+      <div className="container mt-4 d-flex align-items-center justify-content-end py-3 filter">
         <div class="btn-group">
           &nbsp;
           <button
@@ -198,31 +190,7 @@ function Employee() {
           </ul>
         </div>
         &nbsp;
-        <div class="btn-group">
-          <button
-            type="button"
-            class="btn btn-info dropdown-toggle text-light bg-primary"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            {droplimit}
-          </button>
-          <ul class="dropdown-menu">
-            <li class="dropdown-item" onClick={() => sort2("5")}>
-              5{" "}
-            </li>
-            <li class="dropdown-item" onClick={() => sort2("10")}>
-              10{" "}
-            </li>
-            <li class="dropdown-item" onClick={() => sort2("20")}>
-              20{" "}
-            </li>
-            <li class="dropdown-item" onClick={() => sort2("25")}>
-              25{" "}
-            </li>
-          </ul>
-        </div>
-        &nbsp;
+        {/* catagory */}
         <div class="dropdown ">
           <button
             class="btn btn-secondary dropdown-toggle dropbutton text-light bg-primary"
@@ -256,30 +224,31 @@ function Employee() {
           </button>
         </div>
       </div>
-      <div className="container py-1">
+      {/* card  */}
+      <div className="container py-1 card-section">
         <div className="row">
           {data.map((product, index) =>
             index < productspin ? (
               <>
                 <div class="card-container">
-                  <img class="im-image" src={product.image} alt=" " />
+                  <div
+                    key={index}
+                    data-bs-toggle="modal"
+                    data-bs-target="#productInfoModal"
+                    onClick={() => read(product)}
+                  >
+                    {" "}
+                    <img class="im-image" src={product.image} alt=" " />
+                  </div>
                   <br />
                   <main class="main-content">
                     <div className="product-name">
-                      {/* <b>
-                        {" "}
+                      <b>
                         {product.title &&
                           (product.title.length > 30
-                            ? product.title.slice(0, 20)
-                            : product.title)}{" "}
-                      </b> */}
-                       <b>
-              {" "}
-              {product.title &&
-                (product.title.length > 30
-                  ? product.title.slice(0, 20) + "..."
-                  : product.title)}{" "}
-            </b>
+                            ? product.title.slice(0, 20) + "..."
+                            : product.title)}
+                      </b>
                       <span class="tooltiptext"> {product.title} </span>
                     </div>
                     <hr />
@@ -288,7 +257,7 @@ function Employee() {
                       <button
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModalupdate"
-                        className="button-design bg-primary"
+                        className="button-design"
                         onClick={() => create(product)}
                       >
                         Update
@@ -307,7 +276,7 @@ function Employee() {
               ""
             )
           )}
-          <FadeLoader 
+          <ClipLoader
             color={"#000"}
             loading={loading}
             cssOverride={overrideFade}
@@ -317,6 +286,44 @@ function Employee() {
           />
         </div>
       </div>
+      {/* read modal  0*/}
+      <div
+        class="modal fade"
+        id="productInfoModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog ">
+          <div class="modal-content text-dark productInfoModal">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {title}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body row">
+              <div className="product-image col-md-6">
+                <img src={image} alt="" height={"200px"} width={"200px"} />
+              </div>
+              <div className="product-info col-md-6 pt-3">
+                <h6>Product ID: {id}</h6>
+                <h6>Product Price: {price}</h6>
+                <h6>Product Category: {category}</h6>
+                <h6>Product Rating: {rating}</h6>
+              </div>
+              <h6 className="pt-3">Product Description: </h6>{" "}
+              <span>{description}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* update modal  */}
       <div className="container-fluid">
         <div
           class="modal fade "
@@ -389,6 +396,18 @@ function Employee() {
                     />
                   </div>
                   <div class="mb-2">
+                    <label for="recipient-name" class="col-form-label">
+                      Image link
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="recipient-name"
+                      defaultValue={currentproduct?.image}
+                      onChange={(e) => setimage(e.target.value)}
+                    />
+                  </div>
+                  <div class="mb-2">
                     <label for="message-text" class="col-form-label">
                       Description
                     </label>
@@ -422,6 +441,7 @@ function Employee() {
           </div>
         </div>
       </div>
+      {/* add modal  */}
       <div className="container-fluid">
         <div
           class="modal fade"
@@ -444,7 +464,7 @@ function Employee() {
                 ></button>
               </div>
               <div class="modal-body  ">
-                <form className="row">
+                <form className="row" id="myForm">
                   <div class="col-md-6">
                     <label for="id" class="col-form-label">
                       Id:
